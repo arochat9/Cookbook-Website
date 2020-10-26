@@ -1,0 +1,213 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #f1f1f1;
+  /*font-family: 'Roboto', sans-serif;*/
+  font-family: 'Amatic SC', cursive;
+  /*background: url(../images/background_image.png) repeat center center;*/
+  /*background-color: rgba(255,255,255,.7);*/
+  /*background-blend-mode: lighten;*/
+}
+
+img {
+  width: 100%;
+}
+.top {
+  margin-bottom: 50px;
+  /*border-bottom: 3px solid black;*/
+}
+.desktop {display: block;}
+.mobile {display: none;}
+@media screen and (max-width: 600px) {
+  .desktop {display: none;}
+  .mobile {display: block;}
+}
+
+#myInput {
+  width: 160px;
+  border-radius: 35px;
+  border: 3px solid #32e17c;
+  height: 30px;
+  padding: 0px 10px;
+  font-size: 20px;
+}
+#searchbar {
+  position: fixed;
+}
+#searchbar #sliding-panel-outer {
+  display: inline-block;
+  overflow: hidden;
+  position: fixed;
+  top: 22px;
+  right: 70px;
+  width: 200px;
+  transition: width 0.4s ease;
+}
+#searchbar #sliding-panel-inner {
+  width: 200px;
+}
+@media screen and (max-width: 400px) {
+  #myInput {
+    width: 120%;
+  }
+  #searchbar #sliding-panel-outer {
+    width: 60%;
+  }
+  #searchbar #sliding-panel-inner {
+    width: 60%;
+  }
+}
+#searchbar .search-label { /*this is the icon*/
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  /*border: 1px solid black;*/
+  text-align: center;
+  position: fixed;
+
+  line-height: 30px;
+}
+#searchbar .search-label .fa-times,#searchbar.collapsed .search-label .fa-search {
+  display: inline-block;
+}
+#searchbar .search-label .fa-search, #searchbar.collapsed .search-label .fa-times {
+  display: none;
+}
+#searchbar.collapsed #sliding-panel-outer {
+  width: 0px;
+}
+
+/*.content {
+  border: 15px solid black;
+
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 50px;
+  margin-bottom: 25px;
+
+  padding-left: 50px;
+  padding-right: 50px;
+
+  display: flex;
+  align-items: stretch;
+  height: 300px;
+}
+.textBox {
+  margin-left: 40px;
+  margin-right: 40px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  align-self: center
+}
+.image  {
+  flex: 0 0 300px;
+}
+.one {
+  background: url(../images/becImage.jpeg) no-repeat center center;
+}
+.two {
+  background: url(../images/chickenSandwich.jpeg) no-repeat center center;
+}
+.three {
+  background: url(../images/bakedZiti.jpeg) no-repeat center center;
+}*/
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+form {
+  margin: 0px;
+  padding: 0px;
+}
+.box {
+  color: #fff;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 0px;
+  width: 310px;
+  margin: 12px;
+  background-color: white;
+}
+.box > img {
+  border-radius: 8px;
+}
+p {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 24px;
+  font-weight: 700;
+  /*font-family: 'Roboto', sans-serif;*/
+  font-family: 'Amatic SC', cursive;
+}
+@-webkit-keyframes image_blur {
+  0% { -webkit-filter: blur(0px);}
+  100% { -webkit-filter: blur(4px);}
+}
+button:hover {
+  -webkit-animation: image_blur .5s;
+  webkit-filter: blur(4px);
+  filter: blur(4px);
+}
+@media screen and (max-width: 600px) {
+  .flex-container {
+    padding: 0px;
+    display: block;
+  }
+  form {
+    margin-top: 30px;
+  }
+  form > .box {
+    display: table;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    /*border-radius: 0px;*/
+  }
+  .box > img {
+    /*border-radius: 0px;*/
+  }
+  p {
+    font-size: 2em;
+  }
+}
+
+/*colors*/
+.yellow {
+  border-color: #e6b800;
+  background-color: #ffcc00;
+}
+.green {
+  border-color: #3d5f00;
+  background-color: #ccd834;
+}
+.red {
+  border-color: #e20000;
+  background-color: #ff5c33;
+}
+.blue {
+  border-color: #4d79ff;
+  background-color: #99bbff;
+}
+
+
+header {
+  padding: 60px;
+  text-align: center;
+  background: url(../images/recipe_header.jpg) no-repeat center center;
+  background-size: cover;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-size: 30px;
+  /*border-top: 3px solid black;*/
+  margin-top: 70px
+}
+header > p {
+  font-size: 40px;
+  margin: 20px;
+}

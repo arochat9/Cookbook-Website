@@ -1,0 +1,167 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #f1f1f1;
+  /*font-family: 'Roboto', serif;*/
+  font-family: 'Amatic SC', cursive;
+  /*font-family: 'Yanone Kaffeesatz', sans-serif;*/
+}
+header {
+  padding: 60px;
+  text-align: center;
+  background: url(../images/recipe_header.jpg) no-repeat center center;
+  background-size: cover;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-size: 30px;
+  /*border-top: 3px solid black;*/
+  margin-top: 70px
+}
+#title2 {
+  font-size: 80px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
+
+.top {
+  width: 100%;
+  margin-bottom: 50px;
+  border: 0px;
+  /*border-bottom: 3px solid black;*/
+  border-radius: 0px;
+}
+
+img {
+  border-radius: 8px;
+  border: 0px solid black;
+}
+.main-content > img {
+  width: 95%;
+  border: 0px solid black;
+  /*margin-bottom: 30px;*/
+}
+
+.all-content {
+  display: flex;
+  margin-top: 30px;
+  /*align-items: stretch;*/
+}
+.main-content {
+  margin-left: 30px;
+  display: inline-block;
+  width: 65%;
+  flex-grow: 1;
+}
+h1 {
+  font-size: 60px;
+  text-align: center;
+}
+h2 {
+  font-size: 30px;
+}
+.second {
+  margin-top: 50px;
+}
+ul, ol {
+  margin-right: 15px;
+  font-family: 'Roboto', serif;
+}
+li {
+  margin-bottom: 15px;
+}
+#side-content {
+  flex: 1;
+  width: 300px;
+}
+
+.box {
+  opacity: .8;
+  color: #fff;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 0px;
+  width: 250px;
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-bottom: 24px;
+  /*background-color: white;*/
+  background-color: #f1f1f1;
+}
+.box > img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+p {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 24px;
+  font-weight: 700;
+}
+.box > p {
+  font-family: 'Amatic SC', cursive;
+  /*color: black;*/
+}
+
+@-webkit-keyframes image_blur {
+  0% { -webkit-filter: blur(0px);}
+  100% { -webkit-filter: blur(4px);}
+}
+button:hover {
+  -webkit-animation: image_blur .5s;
+  webkit-filter: blur(4px);
+  filter: blur(4px);
+}
+@media screen and (max-width: 600px) {
+  .main-content {
+    margin-right: 0px;
+    margin-left: 0px;
+    display: block;
+    border-radius: 0px;
+  }
+  .main-content > img {
+    border-radius: 5px;
+    border: 0px solid black;
+    margin-bottom: 0px;
+    margin-top: 60px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  ul,ol {
+    margin-left: 0px;
+    margin-right: 15px;
+  }
+  h1 {
+    margin-top: 0px;
+  }
+  h2 {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  #side-content {display: none;}
+}
+/*colors*/
+.yellow {
+  border-color: #e6b800;
+  background-color: #ffcc00;
+}
+.green {
+  border-color: #3d5f00;
+  background-color: #ccd834;
+}
+.red {
+  border-color: #e20000;
+  background-color: #ff5c33;
+}
+.blue {
+  border-color: #4d79ff;
+  background-color: #99bbff;
+}
+.desktop {display: block;}
+.mobile {display: none;}
+@media screen and (max-width: 600px) {
+  .desktop {display: none;}
+  .mobile {display: block;}
+}

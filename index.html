@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+  	<title>Andrew and Ellen's Cookbook</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  	<link href="css/homepagestyles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  	<!-- <link href="https://fonts.googleapis.com/css?family=Holtwood+One+SC" rel="stylesheet">
+  	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet"> -->
+  </head>
+	<body>
+
+    <div id="searchbar" class="collapsed">
+      <div id="search-box">
+        <div id="sliding-panel-outer">
+          <div id="sliding-panel-inner">
+            <input type="text" id="myInput" onkeyup="filterRecipes()" placeholder="Search recipes...">
+            <!-- <button id="search-submit">Search</button> -->
+          </div><!--#sliding-panel-inner-->
+        </div><!--#sliding-panel-outer-->
+
+        <div class="search-label">
+          <i class="fa fa-search" style="font-size:35px"></i>
+          <i class="fa fa-times" style="font-size:35px"></i>
+        </div>
+      </div><!--#search-box-->
+    </div><!--#searchbar-->
+
+    <img class="top desktop" src="images/index_header.jpeg" alt="Recipes by Andrew and Ellen">
+    <img class="top mobile" src="images/index_header_small.jpeg" alt="Recipes by Andrew and Ellen">
+
+    <div class="flex-container" id="flex-div">
+
+    </div>
+    <!-- <div class="content">
+      <div class="image one"></div>
+      <div class="textBox">
+        <h1>Bacon Egg and Cheese</h1>
+        <form method="GET" action="recipe.html">
+          <input type="hidden" name="field1" value="Bacon Egg and Cheese">
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+    </div> -->
+
+    <header>
+      <p>Andrew and Ellen</p>
+    </header>
+
+		<script>
+      recipeData = {
+        "Pad Thai": {
+          "image": "pad_thai.jpeg",
+          "Ingredients": ["Rice noodles","Pad thai sauce", "Chicken thigh", "1 Egg",
+          "Crushed peanuts", "Bean sprouts","Green onions",
+          "Lime","Soy sauce", "Crushed red pepper flakes or sriracha", "Garlic (optional)",
+          "Shredded carrots (optional)"],
+          "Directions": ["Cut chicken thigh into bite sized pieces",
+          "Cook chicken over a little bit of oil in a large fry pan and turn heat to high",
+          "While chicken is cooking, prepare rice noodles according to package instructions",
+          "Once chicken is close to done, turn heat to medium, add vegetables and cook for 3-4 minutes",
+          "In another pan, lightly scramble egg",
+          "Add noodles, pad thai sauce, soy sauce, crushed red pepper, and egg to fry pan and cook on medium to low heat for a couple minutes until everything is cooked through and evenly coated with sauce",
+          "Top with peanuts and garnish with lime wedge",
+          "Tip: Feel free to add more veggies to dish— such as red pepper, broccoli, or mushroom"]
+        },
+        "Pasta Alfredo": {
+          "image": "pasta_alfredo.jpeg",
+          "Ingredients": ["Some type of pasta, wagon wheel or elbows is good",
+          "5 tablespoons of butter","1 cup of milk (heavier the better)",
+          "1 clove of minced garlic","8 oz grated parmesan or romano cheese","salt, pepper, and italian herb seasoning to taste"],
+          "Directions": ["Melt 4 tablespoons butter in a sauce pan over medium heat",
+          "To the melted butter add garlic and milk, stirring constantly",
+          "Once milk is warm, add the shredded cheese",
+          "Continue to stir constantly until the cheese is fully melted in",
+          "Tip: if the sauce is too thin, add flour one tablespoon at a time until the desired consistency is reached",
+          "Turn heat to low and add in spices",
+          "Put a tablespoon of butter in a frying pan and place over medium heat",
+          "Add cooked pasta to pan and sauté until some of the pasta shapes are golden, but not too hard",
+          "Add alfredo sauce into pan and stir until pasta is evenly coated",
+          "Remove from heat and serve",
+          "Optional: top with bacon, chicken, sausage or meat of choice"]
+        },
+        "Quiche": {
+          "image": "quiche.jpeg",
+          "Ingredients": ["Uncooked pie crust","4 eggs","1 cup of milk","1 cup of cheese (or to taste)",
+          "Vegetables and meats of choice (spinach, mushrooms, cubed ham, sausage)","Salt and pepper to taste"],
+          "Directions": ["Prepare uncooked pie crust in pie dish",
+          "In a medium mixing bowl, whisk together milk, eggs, salt, and pepper. Mix in half of the cheese",
+          "Tip: Feel free to play around with adding other spices that might pair well with the vegetables and meats you are using!",
+          "Arrange vegetables, meats, and the other portion of cheese in the pie crust, distributing everything evenly",
+          "Carefully pour the egg mixture over the pie crust and add-ins",
+          "Bake for 45 minutes, until the eggs are fully set in the crust",
+          "Let cool before serving"]
+        },
+        "Bacon Egg and Cheese": {
+          "image": "bec_sandwich.jpeg",
+          "Ingredients": ["3 eggs","2 slices of bacon","Hashbrowns","Butter","Vegatable oil", "Salt and pepper", "Sandwich roll or english muffin",
+          "Ketchup","Hot sauce or sriracha","2 slices of american cheese"],
+          "Directions": ["First, put the hashbrowns and bacon on a pan",
+          "If its the same pan, put the heat on medium low. If you are using seperate pans, then put the bacon on low and the hashbrowns on medium",
+          "Make sure to put plenty of vegatable oil in the hashbrowns",
+          "While that is going, butter the pan and start the scrambled eggs",
+          "Mix in salt and pepper into the scrambled eggs",
+          "Put the roll into the toaster",
+          "Once the eggs are forming up, turn the heat off and put two slices of cheese onto them",
+          "Assemble the sandwich, with the eggs first, then cheese, bacon, hashbrowns",
+          "Finally, top with a lot of ketchup and hot sauce"]
+        },
+        "Baked Ziti": {
+          "image": "baked_ziti.jpeg",
+          "Ingredients": ["Some type of pasta, elbows or wagon wheels are usually good", "Pasta sauce",
+          "Mozzarella cheese", "Salt","Spinach (optional)", "Ground beef (optional)", "Italian seasoning (optional)"],
+          "Directions": ["Start by boiling water, making sure to add a lot of salt",
+          "Cook the pasta once the water is boiling",
+          "Start cooking the ground beef and eventually add the sauce to the pan",
+          "Preheat the oven to 350",
+          "Mix the pasta and sauce into a baking sheet",
+          "Add in the spinach",
+          "Put the cut up mozzarella on top",
+          "Put the pasta in the oven and bake for 20 minutes"]
+        },
+        "Chicken and Cheese Sandwich": {
+          "image": "chicken_sandwich.jpeg",
+          "Ingredients": ["1 boneless chicken thigh","2 slices of american (or cheddar) cheese",
+          "An english muffin", "Salt and pepper", "Mayo", "Relish", "Butter"],
+          "Directions": ["First, butter the pan","Put the chicken thigh on the pan. Set the heat to medium low",
+          "Put salt and pepper on the chicken",
+          "Put english muffin in the toaster",
+          "Test the chicken by cutting into it",
+          "Once the chicken is close to done, put the cheese on top",
+          "Assemble the sandwich, chicken first, then cheese mayo and relish"]
+        },
+        "Pulled Pork Sandwich": {
+          "image": "pulled_pork_sandwich.jpeg",
+          "Ingredients": ["Cooked pulled pork", "2 slices of cheddar cheese", "Bread roll or hamburger bun","Mayo", "Barbecue sauce"],
+          "Directions": ["First, put the pulled pork on the stove, medium heat",
+          "While the pulled pork is cooking, put the bread roll in the toaster",
+          "Make sure the pulled pork is crispy. Once the pulled pork is almost done, put the slices of cheese on top",
+          "Assemble the sandwich and put barbacue sauce and mayo on top"]
+        },
+        "Chicken Cutlet Bacon Avacado Sandwich": {
+          "image": "chicken_avo.jpeg",
+          "Ingredients": ["1 chicken cutlet","1 avacado","2 slices of cheddar or mozzarella cheese",
+          "1 to 2 slices of bacon","Chipotle mayo or regular mayo and sriracha",
+          "1 flour tortilla"],
+          "Directions": ["First, cook the chicken cutlet, either on pan or in oven",
+          "While that is cooking, cook bacon on medium low heat",
+          "Cut up avacado",
+          "Once chicken is almost done, put cheese slices on it",
+          "Put tortilla on whatever pan is available, and then put chicken and cheese, avacado, and bacon on tortilla",
+          "Put tortilla on a plate and then add mayo and sriracha"]
+        }
+      };
+
+      colors = ["yellow", "green", "red", "blue"]
+      counter = 0
+      for (i in recipeData) {
+        if (counter >= colors.length) {
+          counter = 0;
+        }
+        my_form = document.createElement('form');
+        my_form.method = 'GET';
+        my_form.action = 'recipe.html';
+
+        my_button = document.createElement('button')
+        my_button.type = "submit";
+        my_button.className = "box "+colors[counter];
+        my_form.appendChild(my_button)
+
+        my_data = document.createElement('input')
+        my_data.type = "hidden";
+        my_data.name = "field1";
+        my_data.value = i;
+        my_button.appendChild(my_data)
+
+        my_data = document.createElement("img")
+        my_data.src = "images/"+recipeData[i]["image"]
+        my_data.alt = i
+        my_button.appendChild(my_data)
+
+        my_data = document.createElement("p")
+        node = document.createTextNode(i);
+        my_data.appendChild(node)
+        my_button.appendChild(my_data)
+
+        my_div = document.getElementById("flex-div")
+        my_div.appendChild(my_form);
+        // my_form.submit();
+        counter += 1;
+      }
+
+      $("#searchbar .search-label").on("click", function(e){
+        e.preventDefault();
+        $("#searchbar").toggleClass("collapsed");
+      });//click
+
+      function filterRecipes() {
+        var input = document.getElementById("myInput");
+        input = input.value.toLowerCase();
+        my_div = document.getElementById("flex-div")
+        while (my_div.hasChildNodes()) {
+          my_div.removeChild(my_div.childNodes[0]);
+        }
+        counter = 0
+        for (i in recipeData) {
+          if (counter >= colors.length) {
+            counter = 0;
+          }
+          if (i.toLowerCase().includes(input) == true) {
+
+            my_form = document.createElement('form');
+            my_form.method = 'GET';
+            my_form.action = 'recipe.html';
+
+            my_button = document.createElement('button')
+            my_button.type = "submit";
+            my_button.className = "box "+colors[counter];
+            my_form.appendChild(my_button)
+
+            my_data = document.createElement('input')
+            my_data.type = "hidden";
+            my_data.name = "field1";
+            my_data.value = i;
+            my_button.appendChild(my_data)
+
+            my_data = document.createElement("img")
+            my_data.src = "images/"+recipeData[i]["image"]
+            my_data.alt = i
+            my_button.appendChild(my_data)
+
+            my_data = document.createElement("p")
+            node = document.createTextNode(i);
+            my_data.appendChild(node)
+            my_button.appendChild(my_data)
+
+            my_div = document.getElementById("flex-div")
+            my_div.appendChild(my_form);
+          }
+          counter += 1;
+        }
+      }
+		</script>
+	</body>
+</html>
